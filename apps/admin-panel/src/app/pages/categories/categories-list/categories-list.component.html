@@ -1,0 +1,60 @@
+<p-toast></p-toast>
+<p-confirmDialog
+  [style]="{ width: '50vw' }"
+  [baseZIndex]="10000"
+  rejectButtonStyleClass="p-button-text"
+></p-confirmDialog>
+<div class="admin-page">
+  <p-card header="Categories" subheader="List of Categories">
+    <div class="p-grid">
+      <div class="p-col-12">
+        <p-toolbar>
+          <div class="p-toolbar-group-left">
+            <p-button
+              styleClass="p-button-success"
+              label="New"
+              icon="pi pi-plus"
+              routerLink="category-form"
+            ></p-button>
+          </div>
+        </p-toolbar>
+      </div>
+    </div>
+    <div class="p-grid">
+      <div class="p-col-12">
+        <p-table
+          [value]="categories"
+          styleClass="p-datatable-gridlines my-3"
+          responsiveLayout="scroll"
+        >
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Name</th>
+              <th>Icon</th>
+              <th>Color</th>
+              <th></th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-category>
+            <tr>
+              <td>{{ category.name }}</td>
+              <td>{{ category.icon }}</td>
+              <td>{{ category.color }}</td>
+              <td>
+                <p-button
+                  styleClass="p-button-danger mr-2 p-button-sm"
+                  icon="pi pi-trash"
+                  (click)="deleteCategory(category._id)"
+                ></p-button>
+                <p-button
+                  styleClass="p-button-success p-button-sm"
+                  icon="pi pi-pencil"  routerLink="category-form/{{category._id}}"
+                ></p-button>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+  </p-card>
+</div>
