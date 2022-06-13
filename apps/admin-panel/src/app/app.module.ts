@@ -27,6 +27,7 @@ import {InputTextModule} from 'primeng/inputtext';
 import {ReactiveFormsModule } from '@angular/forms';
 import {ToastModule} from 'primeng/toast';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {ColorPickerModule} from 'primeng/colorpicker';
 
 
 
@@ -38,7 +39,8 @@ const UX_MODULES=[
   TableModule ,
   InputTextModule,
   ToastModule ,
-  ConfirmDialogModule
+  ConfirmDialogModule,
+  ColorPickerModule
 ]
 
 

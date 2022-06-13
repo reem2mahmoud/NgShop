@@ -31,6 +31,7 @@ export class AddCategoryComponent implements OnInit {
     this.categoryForm = this.formBuilder.group({
       name: ['', Validators.required],
       icon: ['', Validators.required],
+      color:['#ffffff']
     });
     this.checkMode();
   }
@@ -46,6 +47,9 @@ export class AddCategoryComponent implements OnInit {
     } else {
       this.addCategory(category);
     }
+  }
+  cancel(){
+    this.location.back();
   }
   get formData() {
     return this.categoryForm.controls;
@@ -73,7 +77,7 @@ export class AddCategoryComponent implements OnInit {
           summary: 'Success Message',
           detail: response.message,
         });
-        timer(2000).subscribe((val) => {
+        timer(2000).subscribe(() => {
           this.location.back();
         });
       },
@@ -106,4 +110,5 @@ export class AddCategoryComponent implements OnInit {
       });
     });
   }
+
 }
