@@ -99,7 +99,7 @@ export class AddCategoryComponent implements OnInit {
         summary: 'Success Message',
         detail: response.message,
       });
-      timer(2000).subscribe((val) => {
+      timer(2000).subscribe(() => {
         this.location.back();
       });
     }  , (error) => {
