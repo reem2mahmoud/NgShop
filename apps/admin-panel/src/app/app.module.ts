@@ -34,6 +34,10 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { DropdownModule } from 'primeng/dropdown';
 import { EditorModule } from 'primeng/editor';
+import { UsersListComponent } from './pages/users/users-list/users-list.component'
+import { UserFormComponent } from './pages/users/user-form/user-form.component';
+import { UsersServices } from '@e-commerce/users';
+import { ProductsService } from '@e-commerce/products';
 
 const UX_MODULES = [
   CardModule,
@@ -47,10 +51,17 @@ const UX_MODULES = [
   InputNumberModule,
   InputTextareaModule,
   InputSwitchModule,
-  DropdownModule ,
-  EditorModule
-
+  DropdownModule,
+  EditorModule,
 ];
+
+const SERVICES =[
+  CategoryService,
+  ProductsService,
+  UsersServices,
+  MessageService,
+  ConfirmationService , 
+]
 
 const routes: Routes = [
   {
@@ -85,6 +96,18 @@ const routes: Routes = [
         path: 'products/product-form/:prod_id',
         component: ProductsFormComponent,
       },
+      {
+        path: 'users',
+        component: UsersListComponent,
+      },
+      {
+        path: 'users/salesMan-form',
+        component: UserFormComponent,
+      },
+      {
+        path: 'users/salesMan-form/:user_id',
+        component: UserFormComponent,
+      },
     ],
   },
 ];
@@ -99,6 +122,8 @@ const routes: Routes = [
     AddCategoryComponent,
     ProductsListComponent,
     ProductsFormComponent,
+    UsersListComponent,
+    UserFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -108,8 +133,8 @@ const routes: Routes = [
     RouterModule.forRoot(routes, { initialNavigation: 'enabledBlocking' }),
     ...UX_MODULES,
   ],
-  providers: [CategoryService, MessageService, ConfirmationService],
+  providers: [SERVICES],
   bootstrap: [AppComponent],
   exports: [AddCategoryComponent],
 })
-export class AppModule { }
+export class AppModule {}
