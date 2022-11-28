@@ -1,6 +1,7 @@
+/* eslint-disable @nrwl/nx/enforce-module-boundaries */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -9,8 +10,11 @@ import { ProductListComponent } from './pages/product/product-list/product-list.
 import { FooterComponent } from './shared/footer/footer.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { ProductDetailsComponent } from './pages/product/product-details/product-details.component';
-import { UiModule } from '@e-commerce/ui'
+import { UiModule } from '@e-commerce/ui';
 import { AccordionModule } from 'primeng/accordion';
+import { NavComponent } from './shared/nav/nav.component';
+import { ProductsModule } from '@e-commerce/products';
+import { HttpClientModule } from '@angular/common/http';
 
 
 const routes: Routes = [
@@ -32,13 +36,19 @@ const routes: Routes = [
     FooterComponent,
     HeaderComponent,
     ProductDetailsComponent,
+    NavComponent,
+    
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule, 
-    RouterModule.forRoot(routes) ,
+    BrowserAnimationsModule,
+    HttpClientModule ,
+    RouterModule.forRoot(routes),
     AccordionModule,
-     UiModule],
+    UiModule,
+    ProductsModule
+  
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

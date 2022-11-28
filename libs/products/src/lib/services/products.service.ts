@@ -29,4 +29,7 @@ export class ProductsService {
   console.log('product in service' , product)
     return this.http.put<any>(`${this.productsUrl}/update-product/${product_id}` , product)
   }
+  getFeaturedProducts(count:number):Observable<any>{
+    return this.http.get<any>(`${this.productsUrl}/get-featured-products/${count}`)
+  }
 }

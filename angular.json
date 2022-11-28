@@ -1,6 +1,7 @@
 {
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
+  "es5BrowserSupport": true ,
   "projects": {
     "admin-panel": "apps/admin-panel",
     "admin-panel-e2e": "apps/admin-panel-e2e",
